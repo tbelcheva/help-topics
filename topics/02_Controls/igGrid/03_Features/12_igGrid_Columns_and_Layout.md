@@ -59,6 +59,16 @@ No | No | If column widths are defined, the grid stretches according to the widt
 Yes | Yes | Headers are rendered in a separate table, inside of a DIV (so that if there is width set on the grid and it has horizontal scrollbar, the headers table is in sync with the contents, while scrolling).
 No | Yes | The header’s element is rendered inside of a single table – where the data is hosted. There is no separate TABLE or DIV.
 
+The sample below demonstrates how to set up different layout properties of the `igGrid`. The following properties are exposed: 
+- `caption` – caption text that will be shown above the grid header.
+- `fixedHeaders` - the column headers can be fixed so they are visible while scrolling.
+- `defaultColumnWidth` - when columns don’t have width assigned in the columns collection.
+- `width` (columns) – the width that is applied to the column.
+- `width` - the width of the grid. If a column’s width exceeds the grid’s width then a horizontal scroll bar appears.
+
+<div class="embed-sample">
+    [Grid Layout](%%SamplesEmbedUrl%%/grid/grid-layout)
+</div>
 
 ## <a id="defining-columns"></a> Defining Columns
 
@@ -216,37 +226,11 @@ $("#grid1").igGrid({
 
 By default the cell text in igGrid is left aligned. To customize the cell text alignment use [`columnCssClass`](%%jQueryApiUrl%%/ui.iggrid#options:columns.columnCssClass) option. Just create custom CSS classes to align the text to the desired direction and then apply them to the column using the `columnCssClass`.
 
-**In Html**
-```html
-<style>
-    .align-right {
-        text-align: right;
-    }
-    .align-center {
-        text-align: center;
-    }
-</style>
-```
+The sample below demonstrates how to customize the grid cell text alignment. The grid's "Product ID" and "Reorder Point" numeric columns text is aligned to the right. This is done by applying a custom CSS class to the column cells. The CSS class is configured in the grid column's `columnCssClass` property.
 
-**In Javascript:**
-
-```js
-$("#grid1").igGrid({
-    autoGenerateColumns: false,
-    columns: [ {
-            headerText: "Product Number", 
-            key: "ProductNumber",
-            dataType: "number",
-            columnCssClass: "align-right"
-        }, {
-            headerText: "Modified Date",  
-            key: "ModifiedDate",  
-            dataType: "date",
-            columnCssClass: "align-center"
-        }
-    ]
-});
-``` 
+<div class="embed-sample">
+   [igGrid Configure Text Alignment](%%SamplesEmbedUrl%%/grid/configure-text-alignment)
+</div>
 
 ## <a id="defining-mapper"></a> Defining Mapper function for column
 
